@@ -1,7 +1,6 @@
 import { ref, Ref } from 'vue';
-import { router } from '@inertiajs/vue3';
 import axios from 'axios';
-import type { Service, TimeSlot, BookingForm } from '@/types';
+import type { TimeSlot, BookingForm } from '@/types';
 
 export function useBooking() {
     const loading = ref(false);
@@ -14,7 +13,7 @@ export function useBooking() {
 
         try {
             const response = await axios.get(
-                route('bookings.available-slots', { service: serviceId }),
+                `/api/services/${serviceId}/available-slots`,
                 { params: { date } }
             );
             availableSlots.value = response.data.slots;
@@ -31,7 +30,7 @@ export function useBooking() {
         error.value = null;
 
         try {
-            await axios.post(route('bookings.store'), bookingData);
+            await axios.post('/api/bookings', bookingData);
             return true;
         } catch (err: any) {
             error.value = err.response?.data?.message || 'Failed to create booking';

@@ -6,7 +6,7 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     @routes
-    @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
+    @vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
 </head>
 <body class="antialiased">
