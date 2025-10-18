@@ -17,7 +17,7 @@
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Введите ваше имя"
                 />
-                <p v-if="errors.client_name" class="mt-1 text-sm text-red-600">
+                <p v-if="errors?.client_name" class="mt-1 text-sm text-red-600">
                     {{ errors.client_name }}
                 </p>
             </div>
@@ -34,7 +34,7 @@
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="+7 (999) 123-45-67"
                 />
-                <p v-if="errors.client_phone" class="mt-1 text-sm text-red-600">
+                <p v-if="errors?.client_phone" class="mt-1 text-sm text-red-600">
                     {{ errors.client_phone }}
                 </p>
             </div>
